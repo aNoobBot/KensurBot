@@ -1021,10 +1021,11 @@ async def claptext(memereview):
 @register(outgoing=True, pattern="^.bt$")
 async def bluetext(bt_e):
     """ Believe me, you will find this useful. """
-    if await bt_e.get_reply_message() and bt_e.is_group:
+    if bt_e.is_group:
         await bt_e.edit(
-            "/BLUETEXT /MUST /CLICK.\n"
-            "/ARE /YOU /A /STUPID /ANIMAL /WHICH /IS /ATTRACTED /TO /COLOURS?")
+            "/COLORS_MUST_CLICK\n"
+            "/ARE_YOU_A_STUPID_ANIMAL_WHICH_IS_ATTRACTED_TO_COLOURS?\n"
+            "/CLICK_HERE")
 
 
 @register(outgoing=True, pattern=r"^.f (.*)")
