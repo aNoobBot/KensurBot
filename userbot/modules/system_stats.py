@@ -123,7 +123,7 @@ async def pipcheck(pip):
 async def amireallyalive(alive):
     """ For .on command, check if the bot is running.  """
     await alive.edit("`"
-                     "I'm alive, at your services....\n"
+                     "KensurBot™️ is alive and spreading kensur to users\n"
                      f"------------------------------------\n"
                      f"•  User             : {DEFAULTUSER}\n"
                      f"•  Python           : {python_version()}\n"
@@ -165,7 +165,7 @@ CMD_HELP.update({
     "\nUsage: Does a search of pip modules(s).",
     "alive":
     ">`.alive`"
-    "\nUsage: Type .alive to see wether your bot is working or not."
+    "\nUsage: Type .alive to see whether KensurBot™️ is spreading kensur."
     "\n\n>`.aliveu <text>`"
     "\nUsage: Changes the 'user' in alive to the text you want."
     "\n\n>`.resetalive`"
