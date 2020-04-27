@@ -36,8 +36,8 @@ async def lyrics(lyric):
     songs = genius.search_song(song, artist)
     if songs is None:
         return await lyric.edit(f"`Song` **{artist} - {song}** `not found...`")
-    if len(songs.lyrics) > 4096:
-        await lyric.edit("`Lyrics is too big, view the file to see it.`")
+    if len(songs.lyrics) > 0:
+        await lyric.edit("`Processing`")
         with open("lyrics.txt", "w+") as f:
             f.write(f"Search query: \n{artist} - {song}\n\n{songs.lyrics}")
         await lyric.client.send_file(
