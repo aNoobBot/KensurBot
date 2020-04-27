@@ -137,7 +137,7 @@ async def promote(promt):
     try:
         await promt.client(
             EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Promoted Successfully!`")
+        await promt.edit("`You've been anointed as a knight of this group`")
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
@@ -164,7 +164,7 @@ async def demote(dmod):
         return await dmod.edit(NO_ADMIN)
 
     # If passing, declare that we're going to demote
-    await dmod.edit("`Demoting...`")
+    await dmod.edit("`lmao you're a normie now`")
     rank = "admeme"  # dummy rank, lol.
     user = await get_user_from_event(dmod)
     user = user[0]
@@ -189,7 +189,7 @@ async def demote(dmod):
     # Assume we don't have permission to demote
     except BadRequestError:
         return await dmod.edit(NO_PERM)
-    await dmod.edit("`Demoted Successfully!`")
+    await dmod.edit("`F`")
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
@@ -218,7 +218,7 @@ async def ban(bon):
         return
 
     # Announce that we're going to whack the pest
-    await bon.edit("`Whacking the pest!`")
+    await bon.edit("`Spanking the rart!`")
 
     try:
         await bon.client(EditBannedRequest(bon.chat_id, user.id,
@@ -232,14 +232,14 @@ async def ban(bon):
             await reply.delete()
     except BadRequestError:
         return await bon.edit(
-            "`I dont have message nuking rights! But still he was banned!`")
+            "`I dont have message nuking rights! But still he was spanked!`")
     # Delete message and then tell that the command
     # is done gracefully
     # Shout out the ID, so that fedadmins can fban later
     if reason:
-        await bon.edit(f"`{str(user.id)}` was banned !!\nReason: {reason}")
+        await bon.edit(f"`{str(user.id)}` was spanked!\nReason: {reason}")
     else:
-        await bon.edit(f"`{str(user.id)}` was banned !!")
+        await bon.edit(f"`{str(user.id)}` was spanked!")
     # Announce to the logging group if we have banned the person
     # successfully!
     if BOTLOG:
@@ -320,7 +320,7 @@ async def spider(spdr):
     # If everything goes well, do announcing and mute
     await spdr.edit("`Gets a tape!`")
     if mute(spdr.chat_id, user.id) is False:
-        return await spdr.edit('`Error! User probably already muted.`')
+        return await spdr.edit('`Error! User probably already silenced.`')
     else:
         try:
             await spdr.client(
@@ -328,9 +328,9 @@ async def spider(spdr):
 
             # Announce that the function is done
             if reason:
-                await spdr.edit(f"`Safely taped !!`\nReason: {reason}")
+                await spdr.edit(f"`Silence, boomer`\nReason: {reason}")
             else:
-                await spdr.edit("`Safely taped !!`")
+                await spdr.edit("`Silence, boomer`")
 
             # Announce to logging group
             if BOTLOG:
@@ -376,7 +376,7 @@ async def unmoot(unmot):
         try:
             await unmot.client(
                 EditBannedRequest(unmot.chat_id, user.id, UNBAN_RIGHTS))
-            await unmot.edit("```Unmuted Successfully```")
+            await unmot.edit("```Successfully removed tape from their mouth```")
         except UserIdInvalidError:
             return await unmot.edit("`Uh oh my unmute logic broke!`")
 
@@ -422,7 +422,7 @@ async def rm_deletedacc(show):
     del_status = "`No deleted accounts found, Group is clean`"
 
     if con != "clean":
-        await show.edit("`Searching for ghost/deleted/zombie accounts...`")
+        await show.edit("`Searching for dead nibbas...`")
         async for user in show.client.iter_participants(show.chat_id):
 
             if user.deleted:
@@ -430,7 +430,7 @@ async def rm_deletedacc(show):
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"`Found` **{del_u}** `ghost/deleted/zombie account(s) in this group,"
+                f"`Found` **{del_u}** `dead nibba(s) in this group,"
                 "\nclean them by using .zombies clean`"
             )
         return await show.edit(del_status)
@@ -444,7 +444,7 @@ async def rm_deletedacc(show):
     if not admin and not creator:
         return await show.edit("`I am not an admin here!`")
 
-    await show.edit("`Deleting deleted accounts...\nOh I can do that?!?!`")
+    await show.edit("`Yeeting dead nibbas...\nOh I can do that?!?!`")
     del_u = 0
     del_a = 0
 
@@ -463,10 +463,10 @@ async def rm_deletedacc(show):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s)"
+        del_status = f"Yeeted **{del_u}** dead nibba(s)"
 
     if del_a > 0:
-        del_status = (f"Cleaned **{del_u}** deleted account(s) "
+        del_status = (f"Yeeted **{del_u}** dead nibba(s) "
                       f"\n**{del_a}** deleted admin accounts are not removed"
         )
     await show.edit(del_status)
@@ -567,11 +567,11 @@ async def kick(usr):
 
     if reason:
         await usr.edit(
-            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`\nReason: {reason}"
+            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`in the balls!`\nReason: {reason}"
         )
     else:
         await usr.edit(
-            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`!`")
+            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`in the balls!`")
 
     if BOTLOG:
         await usr.client.send_message(
@@ -607,7 +607,7 @@ async def get_users(show):
         await show.edit(mentions)
     except MessageTooLongError:
         await show.edit(
-            "Damn, this is a huge group. Uploading users lists as file.")
+            "Damn, this group has big pp. Uploading users lists as file.")
         file = open("userslist.txt", "w+")
         file.write(mentions)
         file.close()
@@ -666,7 +666,7 @@ async def get_user_from_id(user, event):
 
     return user_obj
 
-  
+
 @register(outgoing=True, pattern="^.usersdel ?(.*)")
 async def get_usersdel(show):
     """ For .usersdel command, list all of the deleted users in a chat. """
@@ -694,7 +694,7 @@ async def get_usersdel(show):
         await show.edit(mentions)
     except MessageTooLongError:
         await show.edit(
-            "Damn, this is a huge group. Uploading deletedusers lists as file.")
+            "Damn, this group has big pp. Uploading deletedusers lists as file.")
         file = open("userslist.txt", "w+")
         file.write(mentions)
         file.close()
