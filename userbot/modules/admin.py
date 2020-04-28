@@ -567,11 +567,11 @@ async def kick(usr):
 
     if reason:
         await usr.edit(
-            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`in the balls!`\nReason: {reason}"
+            f"`Kicked` [{user.first_name}](tg://user?id={user.id})` in the balls!`\nReason: {reason}"
         )
     else:
         await usr.edit(
-            f"`Kicked` [{user.first_name}](tg://user?id={user.id})`in the balls!`")
+            f"`Kicked` [{user.first_name}](tg://user?id={user.id})` in the balls!`")
 
     if BOTLOG:
         await usr.client.send_message(
