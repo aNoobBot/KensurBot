@@ -10,11 +10,11 @@ from userbot.events import register
 @register(outgoing=True, pattern="^.q(?: |$)(.*)")
 async def _(event):
     if event.fwd_from:
-        return 
+        return
     if not event.reply_to_msg_id:
        await event.edit("```Reply to any user message.```")
        return
-    reply_message = await event.get_reply_message() 
+    reply_message = await event.get_reply_message()
     if not reply_message.text:
        await event.edit("```Reply to text message```")
        return
@@ -25,22 +25,22 @@ async def _(event):
        return
     await event.edit("```Making a Quote```")
     async with bot.conversation(chat) as conv:
-          try:     
+          try:
               response = conv.wait_event(events.NewMessage(incoming=True,from_users=1031952739))
               await bot.forward_messages(chat, reply_message)
-              response = await response 
-          except YouBlockedUserError: 
+              response = await response
+          except YouBlockedUserError:
               await event.reply("```Please unblock @QuotLyBot and try again```")
               return
           if response.text.startswith("Hi!"):
              await event.edit("```Can you kindly disable your forward privacy settings for good?```")
-          else: 
-             await event.delete()   
+          else:
+             await event.delete()
              await bot.forward_messages(event.chat_id, response.message)
              await bot.send_read_acknowledge(event.chat_id)
 
 CMD_HELP.update({
-        "quotly": 
+        "quotly":
         ".q \
-          \nUsage: Enhance ur text to sticker.\n"
+          \nUsage: Enhance your text to stickers.\n"
     })
