@@ -79,10 +79,10 @@ async def bot_ver(event):
                              "`Revision: "
                              f"{revout}"
                              "` \n"
-                             "`Tagged version: v0.1`")
+                             "`Tagged version: v0.2`")
         else:
             await event.edit(
-                "Shame that you don't have Git, you're running v0.1 anyway!")
+                "Shame that you don't have Git, you're running v0.2 anyway!")
 
 
 @register(outgoing=True, pattern="^.pip(?: |$)(.*)")
@@ -138,7 +138,7 @@ async def amireallyalive(alive):
                      f"------------------------------------\n"
                      f"•  User             : {DEFAULTUSER}\n"
                      f"•  Python           : {python_version()}\n"
-                     f"•  Telethon version : {version.__version__}\n"
+                     f"•  KensurBot™️ version : v0.2\n"
                      f"------------------------------------\n"
                      "`")
 
