@@ -1,3 +1,10 @@
+# Copyright (C) 2019 The Raphielscape Company LLC.
+#
+# Licensed under the Raphielscape Public License, Version 1.d (the "License");
+# you may not use this file except in compliance with the License.
+#
+# Credits @adekmaulana
+
 import os
 import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
@@ -70,7 +77,7 @@ async def _(fry):
 
 CMD_HELP.update({
     "deepfry":
-    ">`.df` or >`.df [level(1-8)]`"
+    ".df or .df [level(1-8)]"
     "\nUsage: deepfry image/sticker from the reply."
     "\n@image_deepfrybot"
 })
