@@ -136,8 +136,8 @@ async def amireallyalive(alive):
     await alive.edit("`"
                      "KensurBot™️ is alive and spreading kensur to users\n"
                      f"------------------------------------\n"
-                     f"•  User             : {DEFAULTUSER}\n"
-                     f"•  Python           : {python_version()}\n"
+                     f"•  User               : {DEFAULTUSER}\n"
+                     f"•  Python             : {python_version()}\n"
                      f"•  KensurBot™️ version : v0.2\n"
                      f"------------------------------------\n"
                      "`")
