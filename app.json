@@ -35,11 +35,13 @@
       "required": true
     },
     "UPSTREAM_REPO_URL": {
-      "description": "In case you maintain a fork, add your repo URL here.",
+      "description": "In case you forked the repo, change this to your fork's url. If you don't know what this does leave it as it is.",
+      "value": "https://github.com/KenHV/KensurBot",
       "required": false
     },
     "UPSTREAM_REPO_BRANCH": {
       "description": "Default branch of your custom fork repo.",
+      "value": "master",
       "required": false
     },
     "COUNTRY": {
